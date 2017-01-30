@@ -211,10 +211,11 @@
             -webkit-box-sizing: border-box;
             border: 0.5rem solid transparent;
         }
-        /* 2 Column Grid */
+        /* 1 Column Grid */
         .full {
             width: 100%;
         }
+        /* 2 Column Grid */
         .half {
             width: 50%;
         }
