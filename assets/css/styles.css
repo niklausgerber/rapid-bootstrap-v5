@@ -1,6 +1,6 @@
 /*!
  * Rapid Bootstrap V4
- * https://github.com/niklausgerber/rapid-bootstrap-v4
+ * https://github.com/niklausgerber/rapid-bootstrap-v5
  *
  * Copyright (c) 2016 Niklaus Gerber, niklausgerber.com
  * Licensed under the MIT license
@@ -88,23 +88,23 @@
     /* Hyperlinks */
     a {
         color: #195cff;
-        text-decoration: underline;
+        text-decoration: none;
+        border-bottom: 1px solid #195cff;
     }
-    a:visited {
+    a:link {
         color: #195cff;
     }
     a:hover {
         color: #222;
-        text-decoration: none;
+        border-bottom: none;
     }
-    a:focus {
-        outline: thin dotted;
+    a:active {
+        color: #222;
+        border-bottom: none;
     }
-    p a {
-        /* Optimized for touch devices */
-        margin: -.5em;
-        padding: .5em;
-        position: relative;
+    a:visited {
+        color: #195cff;
+        border-bottom: none;
     }
     /* Tables */
     table {
@@ -177,21 +177,26 @@
         width: 100%;
         max-width: 980px;
         margin: auto;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        border-left: 0.5rem solid transparent;
-        border-right: 0.5rem solid transparent;
     }
-    /* Column Grid */
     .grid {
-        display: block;
-        position: relative;
-        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+    .grid .col {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
     }
     @media (min-width: 320px) {
         html {
             font-size: 125%;
+        }
+        .grid {
+            display: block;
         }
     }
     @media (min-width: 600px) {
@@ -203,39 +208,11 @@
         html {
             font-size: 137.5%;
         }
-        /* Column Grid */
         .grid {
-            display: inline;
-            float: left;
-            box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            border-left: 0.5rem solid transparent;
-            border-right: 0.5rem solid transparent;
+            display: flex;
         }
-        /* 1 Column Grid */
-        .full {
-            width: 100%;
-        }
-        /* 2 Column Grid */
-        .half {
-            width: 50%;
-        }
-        /* 3 Column Grid */
-        .third {
-            width: 33.33333%;
-        }
-        /* 4 Column Grid */
-        .fourth {
-            width: 25%;
-        }
-        /* 5 Column Grid */
-        .fifth {
-            width: 20%;
-        }
-        /* 6 Column Grid */
-        .sixth {
-            width: 16.6666%;
+        .grid .col {
+            padding: 0.25rem;
         }
     }
     @media (min-width: 1024px) {
@@ -247,20 +224,5 @@
         html {
             font-size: 137.5%;
         }
-    }
-    /* Micro Clearfix Hack */
-    .cf:before,
-    .cf:after {
-        content: "";
-        /* For modern browsers */
-        display: table;
-        /* For modern browsers */
-    }
-    .cf:after {
-        clear: both;
-    }
-    .cf {
-        zoom: 1;
-        /* For IE 6/7 (trigger hasLayout) */
     }
 }
